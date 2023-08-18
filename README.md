@@ -143,10 +143,73 @@ np.savez('{}/synthetic_test_stats_m{}_replicate{}.npz'.format(output_dir, m,i+1)
 ```
 The above code would save the errors of ATE and CATE on testing data to folder `output_dir = 'save_outputs'`.
 
-## Some examples
+### Some examples
 
 Please refer to these notebooks and scripts as starting point:
 * Train on replicate \#1 of synthetic data: `example_synthetic_replicate1.ipynb`
 * Train on replicate \#1 of IHDP data: `example_ihdp_replicate1.ipynb`
 * Train on 10 replicates of synthetic data (10 sources): `run_code_synthetic_m10.sh`
 * Train on 10 replicates of IHDP data (10 sources): `run_code_ihdp_m10.sh`
+
+
+## Some experimental results
+
+_**Synthetic datasets**_
+
+
+Federated inference analysis on synthetic data:
+
+<img src="figures/compare-vs-combined-data.jpg" width="420">
+
+The errors on different number of missing features:
+
+<img src="figures/compare-diff-num-missing-features.jpg" width="420">
+
+Marginal distribution of $Z_1,Z_2,Z_3,Z_4$ pseudo data compared with those of complete and incomplete data:
+
+<img src="figures/hist-data.jpg" width="420">
+
+***
+
+Out-of-sample errors of CATE and ATE on synthetic data (lower is better). Top-3 performances are highlighted in bold. Settings that violate privacy constraint are highlighted in gray and they are only used for comparison purpose.
+
+<img src="figures/table-synthetic-1.jpg" width="460">
+
+***
+
+In-sample errors of ATE ($\epsilon_{\text{ATE}}$) on synthetic data:
+
+<img src="figures/table-synthetic-2.jpg" width="240">
+
+***
+
+Distribution of the estimated ATE on IHDP data in replicate \#1:
+
+<img src="figures/distribution-ate-synthetic.jpg" width="480">
+
+Standard deviation of CausalFI vs. FedCI on IHDP data:
+
+<img src="figures/table-synthetic-3.jpg" width="320">
+
+***
+
+_**IHDP dataset**_
+
+Out-of-sample errors of CATE and ATE on IHDP data (lower is better). Top-3 performances are highlighted in bold. Settings that violate privacy constraint are highlighted in gray and they are only used for comparison purpose.
+
+<img src="figures/table-ihdp-1.jpg" width="460">
+
+***
+In-sample errors of ATE ($\epsilon_{\text{ATE}}$) on IHDP data:
+
+<img src="figures/table-ihdp-2.jpg" width="240">
+
+***
+
+Distribution of the estimated ATE on IHDP data in replicate \#1:
+
+<img src="figures/distribution-ate-ihdp.jpg" width="420">
+
+Standard deviation of CausalFI vs. FedCI on IHDP data:
+
+<img src="figures/table-ihdp-3.jpg" width="320">
