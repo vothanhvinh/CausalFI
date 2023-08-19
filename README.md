@@ -14,14 +14,14 @@
 
 
 ### Requirements
-This code has been tested on:
+We implemented CausalFI on ```PyTorch``` and used package ```torchbnn``` for Bayesian models. The code has been tested on:
 ```
 pytorch==2.0.1+cu118
 torchbnn==1.2
 ```
 
 ### Import packages
-
+Loading required packages for training the models:
 ```python
 import numpy as np
 import torch
@@ -49,7 +49,7 @@ device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 ```
 
 ### Load data
-There are 2 datasets included in our sample codes: ```SynData50Sources, IHDP```. The following code would load the ```SynData50Sources``` dataset:
+There are 2 datasets included in our sample codes: ```SynData50Sources``` and ```IHDP```. The following code would load the ```SynData50Sources``` dataset:
 ```python
 from datasets import SynData50Sources
 dataset = SynData50Sources()
@@ -79,6 +79,7 @@ wte = torch.from_numpy(Wte.reshape(-1,1)).float().to(device)
 ```
 
 ### Configuration
+Configuring settings for model training:
 ```python
 training_iter_z = 10000 # number of iterations
 training_iter_zhat = 10000 # number of iterations
@@ -90,6 +91,8 @@ output_dir = 'save_outputs' # output directory
 ```
 
 ### Train the model
+
+Train the models in federated setting:
 
 ```python
 print('*** Learning P(Z|X,Y,W)')
@@ -125,6 +128,8 @@ model_sources_y = [model.model_y for model in model_sources_zhaty]
 
 ### Evaluate CATE and ATE
 
+The following code would save the errors of ATE and CATE on testing data to folder `output_dir = 'save_outputs'`.
+
 ```python
 y0pred, y1pred = pred_y0y1(model_server_zhat=model_server_zhat,
                             model_server_y=model_server_y,
@@ -141,8 +146,6 @@ test_stats.append((eval.absolute_err_ate(y0pred,y1pred), eval.pehe(y0pred, y1pre
 np.savez('{}/synthetic_test_stats_m{}_replicate{}.npz'.format(output_dir, m,i+1),
           test_stats=np.asarray(test_stats))
 ```
-The above code would save the errors of ATE and CATE on testing data to folder `output_dir = 'save_outputs'`.
-
 Next, we print the mean and standard error of the evaluation errors:
 
 ```python
