@@ -143,6 +143,19 @@ np.savez('{}/synthetic_test_stats_m{}_replicate{}.npz'.format(output_dir, m,i+1)
 ```
 The above code would save the errors of ATE and CATE on testing data to folder `output_dir = 'save_outputs'`.
 
+Next, we print the mean and standard error of the evaluation errors:
+
+```python
+import numpy as np
+import scipy
+# Print results for m = 10 sources, averaging over 10 replicates
+m=10 
+test_stats = np.concatenate([np.load('save_outputs/test_stats_m{}_replicate{}.npz'.format(m,i))['test_stats']
+                      for i in range(1,10+1)],axis=0)
+print(np.mean(test_stats,axis=0))
+print(scipy.stats.sem(test_stats,axis=0))
+```
+
 ### Some examples
 
 Please refer to these notebooks and scripts as starting point:
