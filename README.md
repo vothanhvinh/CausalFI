@@ -152,11 +152,13 @@ Next, we print the mean and standard error of the evaluation errors:
 import numpy as np
 import scipy
 # Print results for m = 10 sources, averaging over 10 replicates
-m=10 
-test_stats = np.concatenate([np.load('save_outputs/test_stats_m{}_replicate{}.npz'.format(m,i))['test_stats']
+m = 10
+file_name = 'save_outputs/synthetic_test_stats_m{}_replicate{}.npz'
+test_stats = np.concatenate([np.load(file_name.format(m,i))['test_stats']
                       for i in range(1,10+1)],axis=0)
-print(np.mean(test_stats,axis=0))
-print(scipy.stats.sem(test_stats,axis=0))
+print(test_stats)
+print('Mean of MAE & sqrt(PEHE):', np.mean(test_stats,axis=0))
+print('Standard error of MAE & sqrt(PEHE):', scipy.stats.sem(test_stats,axis=0))
 ```
 
 ### Some examples
