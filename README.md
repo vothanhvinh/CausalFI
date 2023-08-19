@@ -168,7 +168,7 @@ Please refer to these notebooks and scripts as starting point:
 * Train on replicate \#1 of IHDP data: `example_ihdp_replicate1.ipynb`
 * Train on 10 replicates of synthetic data (10 sources): `run_code_synthetic_m10.sh`
 * Train on 10 replicates of IHDP data (10 sources): `run_code_ihdp_m10.sh`
-
+* Print the mean and standard errors over 10 replicates: `print_results.ipynb`
 
 ## Some experimental results
 
