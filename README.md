@@ -161,7 +161,7 @@ Federated inference analysis on synthetic data:
 
 <img src="figures/compare-vs-combined-data.jpg" width="420">
 
-The errors on different number of missing features:
+The errors on different percentage of missing features:
 
 <img src="figures/compare-diff-num-missing-features.jpg" width="420">
 
@@ -187,7 +187,7 @@ Distribution of the estimated ATE on IHDP data in replicate \#1:
 
 <img src="figures/distribution-ate-synthetic.jpg" width="480">
 
-Standard deviation of CausalFI vs. FedCI on IHDP data:
+Standard deviation of CausalFI vs. FedCI on synthetic data:
 
 <img src="figures/table-synthetic-3.jpg" width="320">
 
