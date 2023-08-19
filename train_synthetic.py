@@ -11,6 +11,7 @@ import torchbnn as bnn
 from torchbnn.utils import freeze, unfreeze
 from model import *
 from datasets import SynData50Sources
+from evaluation import *
 
 parser = argparse.ArgumentParser()
 parser.add_argument('n_sources', type=int)
@@ -23,7 +24,7 @@ num_source_to_run = args.n_sources
 print('n_sources {}, replicate {}'.format(args.n_sources, args.replicate))
 
 
-device_id = 1
+device_id = 0
 print('PyTorch version', torch.__version__)
 if torch.cuda.is_available():
   torch.set_default_tensor_type('torch.cuda.FloatTensor')
