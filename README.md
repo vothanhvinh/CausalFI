@@ -1,5 +1,15 @@
 ## Federated Learning of Causal Effects from Incomplete Observational Data
 
+Please cite:
+```
+@article{vo2023federated,
+  title={Federated Learning of Causal Effects from Incomplete Observational Data},
+  author={Vo, Thanh Vinh and Leong, Tze-Yun and others},
+  journal={arXiv preprint arXiv:2308.13047},
+  year={2023}
+}
+```
+
 ### Table of Contents
 - [Requirements](#requirements)
 - [Import packages](#import-packages)
