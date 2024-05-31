@@ -3,10 +3,10 @@
 Please cite:
 ```
 @article{vo2023federated,
-  title={Federated Learning of Causal Effects from Incomplete Observational Data},
+  title={Federated Causal Inference from Observational Data},
   author={Vo, Thanh Vinh and Lee, Young and Leong, Tze-Yun},
   journal={arXiv preprint arXiv:2308.13047},
-  year={2023}
+  year={2024}
 }
 ```
 
